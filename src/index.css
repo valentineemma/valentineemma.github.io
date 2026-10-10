@@ -2,6 +2,7 @@
   font-family: 'DM Sans', 'Segoe UI', sans-serif;
   color: #423d43;
   background: #fbf8f4;
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -11,7 +12,22 @@
   --muted: #665e66;
   --accent: #a16a78;
   --line: #e7dfda;
+  --surface: #fbf8f4;
+  --page-background: #fbf8f4;
   --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+}
+
+:root[data-theme='dark'] {
+  color: #eee8e5;
+  background: #201c21;
+  color-scheme: dark;
+
+  --ink: #f3ece8;
+  --muted: #c0b5b4;
+  --accent: #d39aa7;
+  --line: #484047;
+  --surface: #29242b;
+  --page-background: #201c21;
 }
 
 * {
@@ -22,9 +38,20 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background: var(--page-background);
+  transition: background-color 180ms ease;
 }
 
 ::selection {
   color: #fff;
   background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

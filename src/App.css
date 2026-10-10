@@ -5,6 +5,10 @@
 }
 
 .site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
   padding: 0 0 48px;
   border-bottom: 1px solid var(--line);
 }
@@ -17,6 +21,49 @@
   font-weight: 400;
   letter-spacing: -0.075em;
   line-height: 0.95;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.theme-toggle-indicator {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.theme-toggle[aria-pressed='true'] .theme-toggle-indicator {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: inset 0 0 0 3px var(--surface);
 }
 
 .profile-content {
@@ -64,6 +111,9 @@
   }
 
   .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
     padding-bottom: 34px;
   }
 
